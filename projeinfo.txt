@@ -1,0 +1,45 @@
+Scrum ile Geliştirilecek Yazılım Yapım Projesi (6 Sefer ile Kelime Ezberleme Sistemi)
+Dönem Notuna Ektisi: %40 
+Proje Son Gönderim Tarihi: Dönemin Son Haftası
+Temel Bilgiler: Projeyi tek başınıza ya da bir ekip ile beraber istediğiniz platformda yapabilirsiniz. Ekip üye sayısı en fazla 4 kişi ile sınırlıdır. Eğer daha fazla kişi ile yapılan bir proje olursa, alınan not düşürülerek diğer ekip üye yada üyelerine paylaştırılacaktır. 
+1.Story: Kullanıcı Kayıt, şifremi unuttum ve giriş bölümü olmalı (10 puan).
+Sistemi Kimler Kullanacak (Kullanıcı) belirlenmeli.
+2.Story: Kelime Ekleme modülü olmalı (10 puan). 
+Kelimeler text ve resim içerebilecek
+(İngilizce kelime, Türkçe karşılığı, İngilizce kelimenin birden çok cümle içerisinde geçmesi, Kelime ile ilgili bir resim ve ops olarak sesli okunuşu)
+3.Story: Sınav Modülü olmalı (10 puan)
+Temel 6 Sefer Quiz Sorularının Belirlenme Algoritması: Bir soruyu hakkı ile bilmesi için altı kez üst üste doğru cevabı işaretlemesi lazım. Eğer 6 kez aynı soru için doğru cevabı vermez ise, süreç o soru için başa döner ve 6 kez aynı soru için doğru cevabı vermesi beklenir. Bilinen bir sorunun testte öğrenciye sorulması için kullanılacak zaman aralığı; 1 gün sonra, 1 hafta sonra,1 ay sonra,3 ay sonra,6 ay sonra ve 1 yıl sonra. Eğer 6 farklı zamanda da aynı soruyu doğru olarak bilmiş isek o zaman o soruyu soru havuzundan bilinen soru havuzuna taşı. Sınıfta verilen örnekler harici, bir örnek aşağıda verilmiştir.
+08.02.2024 (Çarşamba) günü.
+İlk on soru 8,12,13,33,54,55,86,87, 19, 10 -> Bu sorulardan 8,12,86,87,19 numaralı kelimeleri 08.03.2022 tarihinden doğru cevapladı.
+09.02.2024 (Perşembe) günü.
+Dünden bilinen kelimeler yani 8,12,86,87,19 numaralı kelimeler ile rast gele seçilen dün bildiği kelimeler hariç 10 kelime daha eklensin yani ezberlemesi için gelecek 2,5,6,78,45,14,56,57,80,81. Öğrenci dün bildiği 5 kelimeden bu sefer 3 tanesini yani 8,12,87 numaralı keliemeleri bildi ve bugün karşılaştığı 45,14,56,57,80,81 numaralı kelimeleri bilsin.
+….
+15.02.2024 (Çarşamba Günü)Bir önceki haftadan bildiği keliemeler  8,12,87 ve dünden yani 14.03 günü itibari ile bildiği kelimeler ve o güne ayit karşısına çıkan rastgele 10 kelieme üzerinden aynı mantık ile test olsun.
+4.Story: Kullanıcı kendi ekranında ayarlar kısmı bulunacak ve öğrenci isterse yeni kelime çıkma sayısını yani 10 sayısını değiştirebilecek.) Sınıfta verilen örnekler harici, bir örnek aşağıda verilmiştir (10 puan). 
+5. Story: Kullanıcı çözümlediği kelimeler üzerinden bir analiz raporu alabilsin. Bu raporda da öğrencinin hangi konular ile ilgili yüzdesel olarak ne kadar başarılı olduğunun gösterilsin. Bu rapor istendiğinde kağıt üzerinden çıktı alınabilsin (10 puan).
+
+
+Proje Notlandırması
+Müşteri gereksinimlerinin, hazırlanan yazılım tarafından gerçekleştirilmesi. Toplamdaki 5 farklı user story’nin tamamlanması. Her bir user story ile ilgili puan isterler kısmında verilmiştir (Toplam Puan: 50 puan)
+Bu kısım, uzunluğu en fazla 7 dk olan ve öğrenci tarafından gönderilecek bir video üzerinden kontrol edilecektir.
+Code Smells değerlendirilmesi (Puan 10).
+Git linkinden bakılacaktır.
+Kod Kalitesi (KISS) Prensipleri (Puan 10).
+Git linkinden bakılacaktır.
+Scrum Table Ekran Görüntüsü (Puan 10).
+Trello ile Scrum table oluşturabilirsiniz. Ekran Görüntüsü (Screen Shot)
+Git Hesabının Linki (Puan 10).
+Help Dokümanı (wiki, yada readme.md), En az 2 commit (Eğer projeyi birden fazla kişi yapıyor ise commitler birden fazla kişiye ait olsun.
+Opsiyonel (SonarQube)
+Bu araçda kullanılabilir ancak opsiyonel puansal bir karşılığı yok.
+Yazılım UI/UX Tasarımı (video) (Puan 10)
+Ekran görüntüsü (video)
+Proje gönderim içeriği: (Programın çalıştığını gösteren video, Git linki, Scrum table ekran görüntüsü ve ekipte çalışanların isim ve numara bilgileri olacak. Ayrıca storylerinin gerçekleştirilip gerçekleştirilmediği ile ilgili ekip beyanı da bulunacaktır.) Bu dosyaları sıkıştırıp, tek bir klasör olarak gönderebilirsiniz (.zip)
+Geç gönderim: Mazeretsiz bir şekilde projeyi geç gönderen öğrencilerden geç gönderim günü başına 10 puan düşülecektir. Örnek: 3 gün geç gönderimde 30 puan alınan puandan düşülecektir.
+Projelerin Doğru Kontrol edilmesi için aşağıdaki gibi yaptığınız ve yapmadığınız modüllerin bilgilerini de proje ile beraber yollayın. Öğrenci beyan örneği:
+İsterler Gerçekleştirildi	Öğrenci Beyanı
+Kullanıcı Kayıt Modülü hazırladığınız yazılımda var mı?	Evet
+Kelime ekleme modülü yazılımda var mı?	Evet
+Kelime sorgulama modülü (test modülü) hazırladığınız yazılımda var mı?	Evet
+Kelime sıklığı değiştirme Modülü hazırladığınız yazılımda var mı?	Hayır
+Analiz Rapor Modülü hazırladığınız yazılımda var mı?	Evet

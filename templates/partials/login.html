@@ -1,0 +1,55 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block content %}
+<!-- <div class="container my-5">
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text"
+        name = "username" placeholder="username">
+        <br>
+        <input type="text" name = "password" placeholder="password">
+        <button type="sumbit">giriş Yap</button>
+        {% if error %}
+        <h2 class="alert alert-danger">{{error}}</h2>
+        {% endif %}
+    </form>
+</div> -->
+
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="loginDiv" id="loginDiv">
+        <h1>Giriş Yap</h1>
+        <div class="inputField">
+            <input type="text" id="username" name="username" required aria-invalid="false" />
+            <label>Kullanıcı Adı</label>
+        </div>
+        <div class="inputField">
+            <input type="password" id="password" name = "password" required aria-invalid="false"/>
+            <label>Şifre</label>
+        </div>
+    </div>
+        <button type="submit" id="login" class="login">Giriş Yap</button>
+    </div>
+    {% if error %}
+        <h2 class="alert alert-danger">{{error}}</h2>
+    {% endif %}
+</form>
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+

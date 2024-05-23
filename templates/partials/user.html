@@ -1,0 +1,96 @@
+{% extends "home.html" %}
+
+{% block content %}
+{% if  request.session.user_id %}
+
+<div class="container">
+    <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Ad</th>
+            <th scope="col">Soyad</th>
+            <th scope="col">Kullanıcı Adı</th>
+            <th scope="col">Mail adresi</th>
+            <th scope="col">Parola</th>
+            <th scope="col">Çıktı al</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{user_info.name}}</th>
+            <td>{{user_info.surname}}</td>
+            <td>{{user_info.username}}</td>
+            <td>{{user_info.user_mail}}</td>
+            <td><a class="btn btn-warning" href="{% url 'reset_password' %}">Şifreyi Sıfırlamak İçin Tıklayınız</a></td>
+            <td><button class="btn btn-success" onclick="window.print()">Yazdır</button>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+    
+</div>
+
+<div class="container">
+    <h2 class="rounded my-3 py-2 text-center text-white" style="background-color: gray;">Doğru Yanıtlanan Kelimeler</h2>
+    <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Kelime</th>
+            <th scope="col">İlk Yanıtlama Tarihi</th>
+            <th>Doğru Yanıtlama Sayısı</th>
+            <th>Bir sonraki görünüm Tarihi</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for answer in correct_answers %}
+            <tr>
+                <th scope="row">{{ answer.2 }}</th> <!-- 'true_word' -->
+                <td>{{ answer.3 }}</td> <!-- 'answer_date' -->
+                <td>{{answer.5}}</td> <!-- 'next_date' -->
+                <td>{{answer.6}}</td> <!-- 'correct_count' -->
+            </tr>
+          {% endfor %}
+      </table>
+</div>
+
+<form class="container" method='POST'>
+    {% csrf_token %}
+    <input type="hidden" name="form_type" value="change_question_count">  <!-- Form ayrımı için -->
+    <h2 class="rounded my-3 py-2 text-center text-white" style="background-color: cadetblue;">Teste Karşınıza Çıkacak Soru Sayısını Değiştirin</h2>
+    <input type="text" name="number_question" placeholder="Soru Sayısını Girin" style="border-radius:4px;">
+    <button class="btn btn-secondary">Soru Sayısını Değiştir</button>
+  </form>
+
+  
+
+  <form method= "POST" class="container my-4 p-5">
+      {% csrf_token %}
+
+      <input type="hidden" name="form_type" value="add_word">  <!-- Form ayrımı için -->
+      <h2 class="bg-secondary rounded my-3 py-2 text-center text-dark">Kelime Havuzuna Yeni Kelimeler Ekleyin</h2>
+      <input type="text" name="word" placeholder="Kelime">
+      <input type="text" name="true_word" placeholder="Doğru Anlam">
+      <input type="text" name="false_word1" placeholder="Yanlış Anlam 1">
+      <input type="text" name="false_word2" placeholder="Yanlış Anlam 2">
+      <button class="btn btn-success" type="submit">Kelime Havuzuna Ekle</button>
+
+       {% if message %}
+        <div class="alert alert-success">
+          {{message}}
+        </div>
+       {% endif %}
+    
+  </form>
+
+
+{% endif %}
+
+
+{% endblock content %}
+
+
+
+
+

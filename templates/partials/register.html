@@ -1,0 +1,64 @@
+{% extends "home.html" %}
+{% load static %}
+{% block content %}
+{% if error %}
+
+    <div class="alert alert-danger">
+        {{error}}
+    </div>
+{% endif %}
+
+<!-- <div class="container my-3">
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name='name' placeholder="ad">
+        <br>
+        <input type="text" name='surname' placeholder="soyad">
+        <br>
+        <input type="text" name='username' placeholder="username">
+        <br>
+        <input type="mail" name='mail' placeholder="mail">
+        <br>
+        <input type="password" name='password' placeholder="password">
+        <br>
+        <input type="password" name='re-password' placeholder="re-password">
+        <br>
+        <button type="submit">Kayıt Ol</button>
+    </form>
+</div> -->
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <div class="box">
+          <h1>Kayıt Ol</h1>
+          <div class="user">
+            <input type="text" name='name' placeholder="Ad">
+            <input type="text" name='surname' placeholder="Soyad">
+            <i class="fas fa-user"></i>
+            <input type="text" name="username" id="username"  placeholder="Kullanıcı Adı">
+            <i class="fas fa-envelope"></i>
+            <input type="text" name="mail" id="email" placeholder="E-Posta">
+            <i class="fas fa-unlock-alt"></i>
+            <input type="password" name="password" id="password" placeholder="Şifre">
+            <i class="fas fa-unlock-alt"></i>
+            <input type="password"  name='re-password' id="confirm-password" placeholder="Şifre Tekrarı">
+          </div>
+          <div class="login-btn">
+            <button type="submit" class="btn">Kayıt Ol
+            </button>
+            <p class="signup">Zaten hesabınız var mı ?
+                <a href="{% url 'loginPage' %}">
+                    <span>Giriş Yap</span>
+                </a>
+            </p>
+          </div>
+        </div>
+    </div>
+</form>
+
+
+
+{% endblock content %}
+
+

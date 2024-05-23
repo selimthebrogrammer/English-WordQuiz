@@ -1,0 +1,74 @@
+{% extends "home.html" %}
+{% block content %}
+{% if request.session.user_id %}
+<form method="POST">  <!-- Testi Kontrol Et butonu için form -->
+    {% csrf_token %}
+<main class="container">
+    <!-- Testin mevcut durumunu kontrol et -->
+    {% if kelimeler %}
+        <table class="table table-hover table-dark">
+            <thead>
+            <tr>
+                <th scope="col">Word</th>
+                <th scope="col">Anlam-1</th>
+                <th scope="col">Anlam-2</th>
+                <th scope="col">Anlam-3</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for kelime in kelimeler %}
+                <tr>
+                    <th scope="row">{{ kelime.word }}</th>
+                    {% for word in kelime.random_words %}
+                    <td>
+                        <input type="radio" name="kelime_{{ kelime.word_id }}" value="{{ word }}">
+                        {{ word }}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type='submit' class="btn btn-primary">Testi Kontrol Et</button>
+    {% endif %}
+</form>
+  <!-- Hata mesajını gösterin -->
+  {% if hata %}
+  <div class="alert alert-danger" role="alert">
+      {{ hata }}
+  </div>
+  {% endif %}
+
+  
+<!-- Doğru cevaplanan kelimeler -->
+{% if correct_answers %}
+<h3>Doğru Cevaplanan Kelimeler</h3>
+<table class="table table-hover table-success">
+    <thead>
+      <tr>
+        <th scope="col">Word</th>
+        <th scope="col">Anlam</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for kelime in correct_answers %}
+        <tr>
+            <th scope="row">{{ kelime.word }}</th>
+            <td>{{ kelime.true_word }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+
+
+    <!-- Yeni Test başlatmak için buton -->
+        {% if correct_count > 0 %}
+            <form method="GET" action="{% url 'wordPage' number_question=kelime_sayisi  %}">  <!-- Yeni test için buton -->
+                <button type='submit' class="btn btn-secondary">Yeni Test Başlat</button>
+            </form>
+        {% endif %}
+</main> 
+    {% endif %}
+{% endblock %}

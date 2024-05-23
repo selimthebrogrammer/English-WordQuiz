@@ -1,0 +1,34 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg" style="background-color: black; margin-bottom: 1rem;" >
+    <div class="container-fluid">
+      <a class="navbar-brand text-white px-4" href="{% url "homePage" %}">Kelime-Quiz Programı</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+            {% if request.session.user_id %}
+                <!-- Kullanıcı giriş yapmışsa, hoş geldin mesajı ve çıkış yap seçeneği göster -->
+                <h2 class="text-white rounded m-3">Kullanıcı : {{request.session.username}}</h2>
+                <li class="nav-item">
+                    <a class="nav-link btn bg-danger text-white m-3" href="{% url "logOut" %}">Çıkış Yap</a>
+                </li>
+                <br>
+                <li class="nav-item">
+                  <a class="nav-link btn bg-primary text-white m-3" href="{% url "userProfil" %}">Kullanıcı Ekranı</a>
+                </li>
+            {% else %}
+                <!-- Kullanıcı giriş yapmamışsa, giriş ve kayıt ol seçeneklerini göster -->
+                <li class="nav-item">
+                    <a class="nav-link btn bg-primary text-white" href="{% url 'loginPage' %}">Giriş Yap</a>
+                    <br>
+                    <a class="nav-link  btn bg-warning text-white" href="{% url 'registerPage' %}">Kayıt Ol</a>
+                </li>
+            {% endif %}
+        </ul>
+      </div>
+    </div>
+</nav>
+
