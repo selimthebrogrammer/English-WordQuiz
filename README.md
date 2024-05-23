@@ -1,4 +1,3 @@
-Herksee Merhabalarrrrr
 
 Yazılım Yapımı Dersi Proje Ödevi İçin Bir Web uygulaması Yaptık
 
